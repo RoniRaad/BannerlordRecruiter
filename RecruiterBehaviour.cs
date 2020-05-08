@@ -536,9 +536,7 @@ namespace Recruiter
 		public MobileParty spawnRecruiter(Settlement settlement, int cash, RecruiterProperties props)
 		{
 			PartyTemplateObject defaultPartyTemplate = settlement.Culture.DefaultPartyTemplate;
-			int numberOfCreated = defaultPartyTemplate.NumberOfCreated;
-			defaultPartyTemplate.IncrementNumberOfCreated();
-			MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(settlement.OwnerClan.StringId + "_" + numberOfCreated);
+			MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(settlement.OwnerClan.StringId + "_Patrol");
 			TextObject textObject = new TextObject("{RECRUITER_SETTLEMENT_NAME} Recruiter", null);
 			textObject.SetTextVariable("RECRUITER_SETTLEMENT_NAME", settlement.Name);
 			mobileParty.InitializeMobileParty(textObject, defaultPartyTemplate, settlement.GatePosition, 0f, 0f, MobileParty.PartyTypeEnum.Default, 1);
